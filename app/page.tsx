@@ -1,4 +1,5 @@
 import { Playfair_Display } from "next/font/google";
+import { Wordchange } from "./component/WordChange";
 
 const playfair = Playfair_Display({ subsets: ["latin"], weight: "400" });
 
@@ -27,7 +28,7 @@ export default function Home() {
       {/* Content */}
       <div className="absolute flex flex-col items-center justify-center w-full h-full text-white gap-4 px-4 text-center">
   <h1 className="text-4xl sm:text-5xl md:text-6xl flex flex-row gap-2">
-    SmartX <span>Funds</span>
+    SmartX <Wordchange></Wordchange>
   </h1>
   <h3 className="text-xs sm:text-sm md:text-base">Coming Live Soon.</h3>
 </div>
