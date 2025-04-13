@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 
 const josefin = Josefin_Sans({ subsets: ["latin"], weight: "100" });
 
-const words = ["Capitals", "Investment"];
+const words = ["Capitals", "Investment","Quant"];
 
 export default function SubHeading() {
   const [index, setIndex] = useState(0);
@@ -19,7 +19,7 @@ export default function SubHeading() {
   }, []);
 
   return (
-    <div className="relative w-[30rem] h-[5rem] overflow-hidden flex justify-center items-center">
+    <div className="uppercase relative w-[30rem] h-[5rem] overflow-hidden flex justify-center items-center">
       <AnimatePresence mode="wait">
         <motion.h1
           key={words[index]}

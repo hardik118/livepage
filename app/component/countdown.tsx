@@ -2,21 +2,26 @@
 import { useState, useEffect } from "react";
 
 export default function Countdown() {
-  const targetDate = new Date();
-  targetDate.setMonth(targetDate.getMonth() + 1); // Set target to one month from now
+  // 🔒 Hardcoded start date: 27 March 2025
+  const startDate = new Date("2025-03-27T00:00:00Z");
+  const durationInMs = 30 * 24 * 60 * 60 * 1000; // 30 days
 
   const calculateTimeLeft = () => {
-    const difference = Number(targetDate) - Number(new Date()); // Explicitly cast to number
-    if (difference <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-  
+    const now = new Date();
+    const endDate = new Date(startDate.getTime() + durationInMs);
+    const diff = endDate.getTime() - now.getTime();
+
+    if (diff <= 0) {
+      return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    }
+
     return {
-      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-      minutes: Math.floor((difference / (1000 * 60)) % 60),
-      seconds: Math.floor((difference / 1000) % 60),
+      days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((diff / (1000 * 60)) % 60),
+      seconds: Math.floor((diff / 1000) % 60),
     };
   };
-  
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
