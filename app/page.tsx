@@ -5,7 +5,11 @@ import Countdown from "./component/countdown";
 import SubHeading from "./component/subheading";
 import { Questrial } from "next/font/google";
 
-const questrial = Questrial({ subsets: ["latin"], weight: "400" });
+const questrial = Questrial({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap", // Ensures the font swap behavior
+});
 
 export default function Home() {
   const handleCanPlay = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
@@ -29,10 +33,10 @@ export default function Home() {
 
       {/* Content */}
       <div className="absolute flex flex-col items-center justify-center w-full h-full text-white gap-4 px-4 text-center">
-        <h1 className={`${questrial.className} text-7xl tracking-wide `}>
-          <h1 className="flex flex-row justify-center gap-1 ">
-            <FirstSubHeading></FirstSubHeading> Equals
-          </h1>
+        <h1 className={`${questrial.className} text-7xl tracking-wide`}>
+          <div className="flex flex-row justify-center gap-1">
+            <FirstSubHeading /> Equals
+          </div>
           <SubHeading />
         </h1>
         <h3 className="text-xs font-thin sm:text-sm md:text-base">Coming Live Soon.</h3>
