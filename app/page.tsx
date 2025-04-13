@@ -1,3 +1,5 @@
+'use client';
+
 import { FirstSubHeading } from "./component/2subheading";
 import Countdown from "./component/countdown";
 import SubHeading from "./component/subheading";
